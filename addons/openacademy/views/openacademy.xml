@@ -110,6 +110,7 @@
                     <field name="name"/>
                     <field name="status_session"/>
                     <filter string="Session de Daniel" name="name" domain="[('name', '=','Daniel')]" />
+                    <filter string="Status True" name="status_session" domain="[('status_session', '=','True')]"/>
                 </search>
             </field>
         </record>
@@ -161,6 +162,7 @@
                                 <field name="name"/>
                                 <field name="status_session"/>
                                 <field name="instructor_id"/>
+                                <field name="see_course"/>
                             </group>
                             <group string="Schedule">
                                 <field name="start_date"/>
