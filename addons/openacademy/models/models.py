@@ -42,7 +42,10 @@ class Session(models.Model):
     # see_course = fields.Many2many(string="Nombres",comodel_name="openacademy.course",
     #     domain="[('name', '=', 'Daniel')]",
     # )
-    
+    def costo_hour(self):
+        self.costo = self.seats * self.duration
+           
+    costo = fields.Float(string="Costo:", help="Indica el costo del Curso",compute=costo_hour)
 
 class openacademy(models.Model):
     _name = 'openacademy.openacademy'
