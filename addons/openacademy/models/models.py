@@ -27,16 +27,18 @@ class Session(models.Model):
         #raise osv.except_osv(_("Warning!"), _(" Hello Mehdi Mokni !!."))
         raise ValidationError("Hola Session")
     
+    
+    
     name = fields.Char(required=True)
     status_session = fields.Boolean(string="Status",default=False)
     start_date = fields.Date()
     duration = fields.Float(digits=(6, 2), help="Duration in days")
     seats = fields.Integer(string="Number of seats")
-    see_course = fields.Many2many('openacademy.course','name')
+    #see_course = fields.Many2one('openacademy.course','name')
     instructor_id = fields.Many2one('res.partner', string="Instructor", domain="[('instructor','=',True)]")
     course_id = fields.Many2one('openacademy.course',
         ondelete='cascade', string="Course", required=True)
-    
+    see_course = fields.One2many('openacademy.session','course_id',string='Session vs Course')
     # see_course = fields.Many2many(string="Nombres",comodel_name="openacademy.course",
     #     domain="[('name', '=', 'Daniel')]",
     # )
