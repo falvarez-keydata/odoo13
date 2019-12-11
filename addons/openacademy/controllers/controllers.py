@@ -4,12 +4,23 @@ from odoo.http import request
 
 
 class Openacademy(http.Controller):
+    @http.route('/contactus', auth='public', website=True)
+    def contacto_redirect(self):
+        return request.redirect('/contacto')
+    
     # @http.route('/contacto', auth='public', website=True)
     # def contacto_redirect(self):
     #     return request.redirect('/contactus')
+    
+    # @http.route('/contacto', auth='public', website=True)
+    # def contacto_render(self):
+    #     return "HEY"
+    
     @http.route('/contacto', auth='public', website=True)
     def contacto_render(self):
-        return "HEY"
+        return http.request.render('website.contactus',{})
+    
+    #Es importante destacar que website contactus puede ser una view
     
     # def index(self, **kw):
     #     return "Hello, world"
