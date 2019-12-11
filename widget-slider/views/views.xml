@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="widget-slider.list">
+      <field name="name">widget-slider list</field>
+      <field name="model">widget-slider.widget-slider</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="widget-slider.action_window">
+      <field name="name">widget-slider window</field>
+      <field name="res_model">widget-slider.widget-slider</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="widget-slider.action_server">
+      <field name="name">widget-slider server</field>
+      <field name="model_id" ref="model_widget-slider_widget-slider"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="widget-slider" id="widget-slider.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="widget-slider.menu_1" parent="widget-slider.menu_root"/>
+    <menuitem name="Menu 2" id="widget-slider.menu_2" parent="widget-slider.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="widget-slider.menu_1_list" parent="widget-slider.menu_1"
+              action="widget-slider.action_window"/>
+    <menuitem name="Server to list" id="widget-slider" parent="widget-slider.menu_2"
+              action="widget-slider.action_server"/>
+-->
+  </data>
+</odoo>

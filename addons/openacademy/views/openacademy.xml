@@ -23,6 +23,7 @@
             <field name="model">openacademy.course</field>
             <field name="arch" type="xml">
                 <form string="Course Form">
+                    
                     <sheet>
                         <group>
                             <field name="name"/>
@@ -64,7 +65,7 @@
         
         <record model="ir.actions.act_window" id="course_list_action">
             <field name="name">Courses</field>
-            <field name="res_model">openacademy.course</field>
+            <field name="res_model">openacademy.course</field>            
             <field name="view_mode">tree,form</field>
             <field name="context" eval="{'search_default_my_courses': 1}"/>
             <field name="help" type="html">
@@ -94,10 +95,24 @@
             <field name="arch" type="xml">
                 <tree string="Session Tree">
                     <field name="name"/>
+                    <field name="course_id"/>
+                    <field name="status_session"/>
                 </tree>
             </field>
         </record>
-
+        
+        <!-- Busqueda por status, name y Daniel -->
+        <record id="session_search_view" model="ir.ui.view">
+            <field name="name">Test Search</field>
+            <field name="model">openacademy.session</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="status_session"/>
+                    <filter string="Session de Daniel" name="name" domain="[('name', '=','Daniel')]" />
+                </search>
+            </field>
+        </record>
         
         <record model="ir.ui.view" id="course_search_view">
             <field name="name">course.search</field>
@@ -128,12 +143,30 @@
             <field name="model">openacademy.session</field>
             <field name="arch" type="xml">
                 <form string="Session Form">
+                    <header>
+                        <button name="action_test"
+                            string="Test"
+                            type="object"
+                            class="oe_highlight"
+                        />
+                    </header>
                     <sheet>
                         <group>
-                            <field name="name"/>
+                            <!-- <field name="name"/>
                             <field name="start_date"/>
                             <field name="duration"/>
-                            <field name="seats"/>
+                            <field name="seats"/> -->
+                            <group string="General">
+                                <field name="course_id"/>
+                                <field name="name"/>
+                                <field name="status_session"/>
+                                <field name="instructor_id"/>
+                            </group>
+                            <group string="Schedule">
+                                <field name="start_date"/>
+                                <field name="duration"/>
+                                <field name="seats"/>
+                            </group>
                         </group>
                     </sheet>
                 </form>
