@@ -27,6 +27,14 @@ class Session(models.Model):
         #raise osv.except_osv(_("Warning!"), _(" Hello Mehdi Mokni !!."))
         raise ValidationError("Hola Session")
     
+    @api.onchange('course_id')
+    def _onchange(self):
+        if self.status_session == True:
+            self.status_session = False
+        else:
+            self.status_session = True
+        
+       # self.price = self.produk_id.price
     
     
     name = fields.Char(required=True)
