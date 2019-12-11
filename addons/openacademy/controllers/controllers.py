@@ -1,11 +1,22 @@
 # -*- coding: utf-8 -*-
 from odoo import http
+from odoo.http import request
 
 
 class Openacademy(http.Controller):
-    @http.route('/openacademy/openacademy/', auth='public')
-    def index(self, **kw):
-        return "Hello, world"
+    # @http.route('/contacto', auth='public', website=True)
+    # def contacto_redirect(self):
+    #     return request.redirect('/contactus')
+    @http.route('/contacto', auth='public', website=True)
+    def contacto_render(self):
+        return "HEY"
+    
+    # def index(self, **kw):
+    #     return "Hello, world"
+    
+    # @http.route('/openacademy/openacademy/', auth='public', website=True)
+    # def index(self, **kw):
+    #     return "Hello, world"
 
 '''     @http.route('/openacademy/openacademy/objects/', auth='public')
     def list(self, **kw):

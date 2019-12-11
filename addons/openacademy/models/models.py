@@ -31,6 +31,10 @@ class Session(models.Model):
     def _onchange(self):
         if self.status_session == True:
             self.status_session = False
+            #  res = {'warning': {
+            # 'title': _('Warning'),
+            # 'message': _('My warning message.')
+            # }
         else:
             self.status_session = True
         
