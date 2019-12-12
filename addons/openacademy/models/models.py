@@ -42,6 +42,8 @@ class Session(models.Model):
     
     
     name = fields.Char(required=True)
+    #state solicitado por report
+    state = fields.Char()
     status_session = fields.Boolean(string="Status",default=False)
     start_date = fields.Date()
     duration = fields.Float(digits=(6, 2), help="Duration in days")

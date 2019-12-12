@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <odoo>
+        <record model="ir.ui.view" id="wizard_openacademy">
+            <field name="name">Wizard de Session</field>
+            <field name="model">openacademy.session</field>
+            <field name="arch" type="xml">
+                <form string="Wizard Report">
+                    <sheet>
+                        <group>
+                            <field name="title"/>
+                            <field name="descripcion"/>
+                            <field name="date_init"/>
+                        </group>
+                    </sheet>
+                </form>
+                <footer>
+                    <button name="action_report" string="Generar" class="oe_highlight" type="object"/>
+                    <span class="or_cancel"> or 
+                        <button special="cancel" string="Cancel" type="object" class="oe_link oe_inlink"/>
+                    </span>
+                </footer>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="report_list_action">
+            <field name="name">Report Wizard</field>
+            <field name="res_model">wizard_openacademy</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="wizard_openacademy"/>
+            <field name="target">new</field>
+        </record>
+        
+        <menuitem id="menu_wizard_openacademy" name="Report usando wizard" parent="main_openacademy_menu" action="report_list_action"/>
+</odoo>

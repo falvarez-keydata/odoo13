@@ -25,7 +25,10 @@
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
+        # 'views/wizard_openacademy.xml'        
         'views/templates.xml',
+        'views/views.xml',
+        'views/report.xml',
         'views/partner.xml',
         'views/openacademy.xml',
         'security/ir.model.access.csv',
