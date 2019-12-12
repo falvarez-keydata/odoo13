@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report id="report_custom"
+            string="Reporte Sesion"
+            model="openacademy.session"
+            report_type="qweb-pdf"
+            name="openacademy.report_custom_template"
+        />
+        <template id="report_custom_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="header">
+                            <h1>Header</h1>
+                        </div>
+                        <div class="page">
+                            <h1>Reporte <span t-field="o.name"/></h1>
+                            <p t-field="o.status_session"></p>
+                            <p>start_date</p>
+                            <p t-field="o.start_date"></p>
+                            <p t-field="o.instructor_id"></p>
+                            <p t-field="o.course_id"></p>
+                        </div>
+                        <div class="footer">
+                            <small>Footer</small>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>
