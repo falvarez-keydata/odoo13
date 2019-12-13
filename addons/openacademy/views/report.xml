@@ -11,7 +11,8 @@
             string="Reporte Sesion Excel"
             model="openacademy.session"
             report_type="xlsx"
-            name="openacademy.report_custom_template_xlsx"
+            name="openacademy.report_custom_template.xlsx"
+            file="openacademy.report_custom_template.xlsx"
         />
         <template id="report_custom_template">
             <t t-call="web.html_container">

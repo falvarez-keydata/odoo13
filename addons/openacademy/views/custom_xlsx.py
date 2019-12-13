@@ -1,6 +1,11 @@
 from odoo import models
+# from odoo.addons..addons.report_xlsx.report.report_xlsx import ReportXlsx
+# from odoo import ReportXlsx
 
-class CustomXlsx(models.AbstractModel):
+# from addons.report_xlsx.report.report_xlsx import ReportXlsx
+
+class CustomXLS(models.AbstractModel):
+# class CustomXLS(ReportXlsx):
     _name = 'report.openacademy.report_custom_template_xlsx'
     _inherit = 'report.report_xlsx.abstract'
 
@@ -8,7 +13,9 @@ class CustomXlsx(models.AbstractModel):
         # print ("lines",lines, data)
         # format1 = workbook.add.format({'font_size':14,'align':'vcenter','bold':True})
         # format2 = workbook.add.format({'font_size':10,'align':'vcenter',})
-        sheet = workbook.add_worksheet('Report Excel prueba')
+        # sheet = workbook.add_worksheet('Report Excel prueba')
+        workbook.add_worksheet('Excel prueba')
+        
         # sheet.write(2, 2, 'Nombre', format1)
         # sheet.write(2, 3, lines., format2)
         # for obj in partners:
@@ -17,3 +24,5 @@ class CustomXlsx(models.AbstractModel):
         # sheet = workbook.add_worksheet(report_name[:31])
         # bold = workbook.add_format({'bold': True})
         # sheet.write(0, 0, obj.name, bold)
+#CustomXLS('report.openacademy.report_custom_template.xlsx', 'openacademy.session')        
+#CustomXLS('report.openacademy.report_custom_template_xlsx','openacademy.report_custom_template_xlsx')
